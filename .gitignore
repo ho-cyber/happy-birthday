@@ -13,3 +13,6 @@
 .externalNativeBuild
 .cxx
 local.properties
+.wwebjs_auth/
+.wwebjs_cache/
+node_modules/
