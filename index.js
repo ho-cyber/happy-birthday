@@ -17,7 +17,6 @@ const client = new Client({
             '--disable-dev-shm-usage',
             '--disable-gpu'
         ],
-        executablePath: process.env.PUPPETEER_EXECUTABLE_PATH || '/usr/bin/google-chrome-stable',
     }
 });
 
