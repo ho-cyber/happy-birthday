@@ -4,19 +4,18 @@ const schedule = require('node-schedule');
 const express = require('express');
 const moment = require('moment-timezone');
 
+const puppeteer = require('puppeteer');
 const app = express();
 app.use(express.json());
+
 
 const client = new Client({
     authStrategy: new LocalAuth(),
     puppeteer: {
-        // Essential flags for running in a Docker container
-        args: [
-            '--no-sandbox', 
-            '--disable-setuid-sandbox', 
-            '--disable-dev-shm-usage',
-            '--disable-gpu'
-        ],
+        args: ['--no-sandbox', '--disable-setuid-sandbox', '--disable-dev-shm-usage', '--disable-gpu'],
+        executablePath: process.env.PUPPETEER_EXECUTABLE_PATH || 
+                        '/usr/bin/google-chrome' || 
+                        puppeteer.executablePath(),
     }
 });
 
