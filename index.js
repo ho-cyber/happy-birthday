@@ -8,13 +8,18 @@ const puppeteer = require('puppeteer');
 const app = express();
 app.use(express.json());
 
-
 const client = new Client({
     authStrategy: new LocalAuth(),
     puppeteer: {
-        args: ['--no-sandbox', '--disable-setuid-sandbox', '--disable-dev-shm-usage', '--disable-gpu'],
-        executablePath: '/usr/bin/google-chrome'
-                        
+        args: [
+            '--no-sandbox', 
+            '--disable-setuid-sandbox', 
+            '--disable-dev-shm-usage', 
+            '--disable-gpu'
+        ],
+        // 1. Check Render Env Var first
+        // 2. If not found, let Puppeteer find its bundled browser automatically
+        executablePath: process.env.PUPPETEER_EXECUTABLE_PATH || puppeteer.executablePath(),
     }
 });
 
