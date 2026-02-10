@@ -1,5 +1,0 @@
-2026/02/10-21:17:10.397 cb59fd Creating DB /Users/dhruv/Desktop/Coding/bothserver/.wwebjs_auth/session/Default/Local Storage/leveldb since it was missing.
-2026/02/10-21:17:10.403 cb59fd Reusing MANIFEST /Users/dhruv/Desktop/Coding/bothserver/.wwebjs_auth/session/Default/Local Storage/leveldb/MANIFEST-000001
-2026/02/10-21:30:23.452 cb5a00 Level-0 table #5: started
-2026/02/10-21:30:23.454 cb5a00 Level-0 table #5: 22161 bytes OK
-2026/02/10-21:30:23.456 cb5a00 Delete type=0 #3
