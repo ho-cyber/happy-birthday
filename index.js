@@ -26,6 +26,28 @@ client.on('qr', (qr) => {
     qrcode.generate(qr, { small: true });
 });
 
+app.get('/qr', async (req, res) => {
+    if (!lastQr) {
+        return res.send('QR code not generated yet or client is already ready. Check logs.');
+    }
+    
+    try {
+        // Generate an HTML page with the QR code as an image
+        const qrImage = await QRCode.toDataURL(lastQr);
+        res.send(`
+            <html>
+                <body style="display:flex; flex-direction:column; align-items:center; justify-content:center; height:100vh; font-family:sans-serif;">
+                    <h1>Scan this with WhatsApp</h1>
+                    <img src="${qrImage}" style="width:300px; height:300px; image-rendering: pixelated;" />
+                    <p>Refresh the page if the QR expires.</p>
+                </body>
+            </html>
+        `);
+    } catch (err) {
+        res.status(500).send('Error generating QR image');
+    }
+});
+
 client.on('ready', () => console.log('WhatsApp Client is ready!'));
 
 // API Endpoint to Schedule
