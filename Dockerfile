@@ -16,7 +16,6 @@ COPY . .
 
 # Set environment variables for Puppeteer
 ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true
-ENV PUPPETEER_EXECUTABLE_PATH=/usr/bin/google-chrome
 
 # Render uses the PORT environment variable
 EXPOSE 3000

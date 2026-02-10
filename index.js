@@ -17,9 +17,7 @@ const client = new Client({
             '--disable-dev-shm-usage', 
             '--disable-gpu'
         ],
-        // 1. Check Render Env Var first
-        // 2. If not found, let Puppeteer find its bundled browser automatically
-        executablePath: process.env.PUPPETEER_EXECUTABLE_PATH || puppeteer.executablePath(),
+
     }
 });
 
